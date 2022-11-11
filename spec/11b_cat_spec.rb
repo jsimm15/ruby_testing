@@ -35,17 +35,20 @@ end
 
 describe Cat do
   # Create a subject with your choice of cat name and optional breed/color.
-
+  subject(:wilbur) {described_class.new('Wilbur', 'Tabby', 'purple')}
   # Write a test using the second shared_example to test that cat responds to
   # talk ('meow').
-  context '' do
+  context 'when Cat inherits method from base class' do
+    include_examples 'shared method name'
   end
 
   # remove the 'x' before running this test
-  xit 'is not hungry' do
+  it 'is not hungry' do
+    expect(wilbur).not_to be_hungry
   end
 
   # remove the 'x' before running this test
-  xit 'is hiding' do
+  it 'is hiding' do
+    expect(wilbur).to be_hiding
   end
 end
